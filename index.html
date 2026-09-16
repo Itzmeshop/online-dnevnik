@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Электронный Дневник — Расписание и ДЗ</title>
     <style>
-        /* Переменные для быстрой смены цветов */
         :root {
             --bg-color: #f4f6f9;
             --card-bg: #ffffff;
@@ -17,7 +16,6 @@
             --toggle-btn-text: #ffffff;
         }
 
-        /* Цвета для темной темы */
         [data-theme="dark"] {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -56,12 +54,8 @@
             border-bottom: 2px solid var(--border-color);
         }
 
-        h1 {
-            margin: 0;
-            font-size: 24px;
-        }
+        h1 { margin: 0; font-size: 24px; }
 
-        /* Кнопка переключения темы */
         .theme-toggle {
             background-color: var(--toggle-btn-bg);
             color: var(--toggle-btn-text);
@@ -78,7 +72,6 @@
             max-width: 800px;
         }
 
-        /* Стили карточки дня (как в дневнике) */
         .day-card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -96,7 +89,6 @@
             color: var(--accent-color);
         }
 
-        /* Таблица расписания */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -220,83 +212,4 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- СРЕДА -->
-        <div class="day-card">
-            <div class="day-title">Среда</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="col-num">№</th>
-                        <th class="col-subject">Предмет</th>
-                        <th class="col-homework">Домашнее задание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
-                        <td class="col-homework">—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ЧЕТВЕРГ -->
-        <div class="day-card">
-            <div class="day-title">Четверг</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="col-num">№</th>
-                        <th class="col-subject">Предмет</th>
-                        <th class="col-homework">Домашнее задание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
-                        <td class="col-homework">—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ПЯТНИЦА -->
-        <div class="day-card">
-            <div class="day-title">Пятница</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="col-num">№</th>
-                        <th class="col-subject">Предмет</th>
-                        <th class="col-homework">Домашнее задание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
-                        <td class="col-homework">—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- СУББОТА -->
-        <div class="day-card">
-            <div class="day-title">Суббота</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="col-num">№</th>
-                        <th class="col-subject">Предмет</th>
-                        <th class="col-homework">Домашнее задание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
 
