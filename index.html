@@ -14,6 +14,7 @@
             --accent-color: #4a90e2;
             --toggle-btn-bg: #333333;
             --toggle-btn-text: #ffffff;
+            --details-bg: #f8fafc;
         }
 
         [data-theme="dark"] {
@@ -25,6 +26,7 @@
             --accent-color: #bb86fc;
             --toggle-btn-bg: #ffffff;
             --toggle-btn-text: #121212;
+            --details-bg: #252525;
         }
 
         * {
@@ -67,7 +69,6 @@
             font-size: 14px;
         }
 
-        /* Блок переключения недель */
         .week-picker {
             display: flex;
             align-items: center;
@@ -98,19 +99,9 @@
             user-select: none;
         }
 
-        .week-btn:hover {
-            opacity: 0.9;
-        }
-
-        .week-title {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-        }
+        .week-btn:hover { opacity: 0.9; }
+        .week-title { font-size: 16px; font-weight: 600; }
+        .container { width: 100%; max-width: 800px; }
 
         .day-card {
             background-color: var(--card-bg);
@@ -129,27 +120,45 @@
             color: var(--accent-color);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border-color); }
+        th { font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
         .col-num { width: 5%; text-align: center; }
         .col-subject { width: 35%; font-weight: 500; }
         .col-homework { width: 60%; color: var(--text-muted); }
+
+        /* Стили раскрывающегося описания ДЗ */
+        .hw-trigger {
+            cursor: pointer;
+            text-decoration: underline dotted;
+            display: inline-block;
+        }
+        .hw-trigger:hover { color: var(--accent-color); }
+        
+        .hw-details {
+            display: none;
+            padding: 8px 12px;
+            margin-top: 8px;
+            background-color: var(--details-bg);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Кнопка скачивания файлов */
+        .download-btn {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: var(--accent-color);
+            color: #fff !important;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .download-btn:hover { opacity: 0.9; }
 
         @media (max-width: 600px) {
             body { padding: 10px; }
@@ -164,7 +173,6 @@
         <button class="theme-toggle" id="themeButton">Ночной режим</button>
     </header>
 
-    <!-- Кликабельные стрелочки недели -->
     <div class="week-picker">
         <button class="week-btn" id="prevWeek">←</button>
         <div class="week-title" id="weekLabel">Текущая неделя</div>
@@ -188,27 +196,32 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Физика</td>
-                        <td class="col-homework" data-mon="1">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework" data-mon="2">Упражнение 35</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Упражнение 35</span>
+                            <div class="hw-details">
+                                Выполнить упражнение на странице 18. Списать текст, выделить орфограммы.
+                                <br><a href="files/russian_35.pdf" download class="download-btn">📥 Скачать файл задания</a>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework" data-mon="3">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Труд</td>
-                        <td class="col-homework" data-mon="4">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
         <!-- ВТОРНИК -->
         <div class="day-card">
             <div class="day-title">Вторник</div>
@@ -224,37 +237,60 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Информатика</td>
-                        <td class="col-homework" data-tue="1">Яндекс Учебник</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Яндекс Учебник</span>
+                            <div class="hw-details">
+                                Зайти в личный кабинет Яндекс Учебника и выполнить тест по теме "Алгоритмы".
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Геометрия</td>
-                        <td class="col-homework" data-tue="2">Номера 2.20, 2.21, 2.23, 2.28, 2.29</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Номера 2.20, 2.21...</span>
+                            <div class="hw-details">
+                                Решить в тетради задачи: № 2.20, 2.21, 2.23, 2.28, 2.29.
+                                <br><a href="files/geometry_homework.png" download class="download-btn">📥 Скачать чертеж</a>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework" data-tue="3">Упражнение 42</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Упражнение 42</span>
+                            <div class="hw-details">Повторить словарные слова. В упражнении 42 раскрыть скобки и вставить пропущенные буквы.</div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Английский язык</td>
-                        <td class="col-homework" data-tue="4">Слова 1b</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Слова 1b</span>
+                            <div class="hw-details">Выписать в словарик новые выражения из модуля 1b на странице 12 и выучить их к диктанту.</div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
                         <td class="col-subject">Музыка</td>
-                        <td class="col-homework" data-tue="5">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">6</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework" data-tue="6">Номера 2.21, 2.39, 2.40</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Номера 2.21, 2.39...</span>
+                            <div class="hw-details">Выполнить в рабочей тетради задания повышенной сложности № 2.21, 2.39, 2.40.</div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">7</td>
                         <td class="col-subject">История</td>
-                        <td class="col-homework" data-tue="7">Параграф 4 пункты 6-7, опорные слова</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">Параграф 4 пункты 6-7...</span>
+                            <div class="hw-details">Прочитать параграф 4, пункты 6 и 7. Выписать в тетрадь основные опорные слова и хронологические даты.</div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -275,22 +311,22 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework" data-wed="1">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework" data-wed="2">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Английский язык</td>
-                        <td class="col-homework" data-wed="3">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Физ-ра</td>
-                        <td class="col-homework" data-wed="4">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
@@ -310,8 +346,6 @@
                 </tbody>
             </table>
         </div>
-
-        
         <!-- ЧЕТВЕРГ -->
         <div class="day-card">
             <div class="day-title">Четверг</div>
@@ -327,37 +361,46 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">История</td>
-                        <td class="col-homework" data-thu="1">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Геометрия</td>
-                        <td class="col-homework" data-thu="2">П-ф 7-8 №31(а), 32, 36, 37, 38 (доделать). Принести транспортир!</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">№31(а), 32... Принести транспортир!</span>
+                            <div class="hw-details">
+                                П-ф 7-8 №31(а), 32, 36, 37, 38 (доделать). Обязательно принести на урок транспортир!
+                                <br><a href="files/geometry_notes.pdf" download class="download-btn">📥 Скачать памятку по углам</a>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Физика</td>
-                        <td class="col-homework" data-thu="3">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Биология</td>
-                        <td class="col-homework" data-thu="4">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework" data-thu="5">П-ф 3 №3.4, 3.5, 3.10</td>
+                        <td class="col-homework">
+                            <span class="hw-trigger">П-ф 3 №3.4, 3.5...</span>
+                            <div class="hw-details">Изучить параграф 3, решить в тетради № 3.4, 3.5, 3.10.</div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-num">6</td>
                         <td class="col-subject">Физ-ра</td>
-                        <td class="col-homework" data-thu="6">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">7</td>
                         <td class="col-subject">Хор</td>
-                        <td class="col-homework" data-thu="7">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -378,32 +421,32 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">ИЗО</td>
-                        <td class="col-homework" data-fri="1">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">География</td>
-                        <td class="col-homework" data-fri="2">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework" data-fri="3">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Теория и статистика</td>
-                        <td class="col-homework" data-fri="4">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
                         <td class="col-subject">Физика</td>
-                        <td class="col-homework" data-fri="5">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">6</td>
                         <td class="col-subject">Литература</td>
-                        <td class="col-homework" data-fri="6">—</td>
+                        <td class="col-homework">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -423,15 +466,14 @@
                 <tbody>
                     <tr>
                         <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
-                        <td class="col-homework" data-sat="1">—</td>
+                        <td class="col-subject">Выходной день</td>
+                        <td class="col-homework">—</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-    </div> <!-- Конец контейнера -->
-
+    </div> <!-- Конец главного контейнера -->
     <script>
         // --- ЛОГИКА ТЕМЫ ИНТЕРФЕЙСА ---
         const themeButton = document.getElementById('themeButton');
@@ -458,20 +500,32 @@
             }
         });
 
+        // --- ЛОГИКА РАСКРЫТИЯ ДОМАШНЕГО ЗАДАНИЯ ---
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('hw-trigger')) {
+                const details = e.target.nextElementSibling;
+                if (details && details.classList.contains('hw-details')) {
+                    const isVisible = details.style.display === 'block';
+                    details.style.display = isVisible ? 'none' : 'block';
+                }
+            }
+        });
+
         // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ НЕДЕЛЬ ---
-        let currentWeekOffset = 0; // 0 - текущая неделя, -1 - прошлая, 1 - следующая и т.д.
+        let currentWeekOffset = 0;
         const weekLabel = document.getElementById('weekLabel');
         const prevWeekBtn = document.getElementById('prevWeek');
         const nextWeekBtn = document.getElementById('nextWeek');
 
-        // Сохраняем исходный текст домашки, чтобы возвращать его на текущей неделе
-        const originalHomework = {};
-        document.querySelectorAll('.col-homework').forEach((td, index) => {
-            originalHomework[index] = td.textContent;
+        // Сохраняем начальное содержимое ячеек домашнего задания
+        const originalHomeworkHtml = [];
+        const hwCells = document.querySelectorAll('.col-homework');
+        hwCells.forEach((td) => {
+            originalHomeworkHtml.push(td.innerHTML);
         });
 
         function updateWeekDisplay() {
-            // Обновляем текст на плашке со стрелками
+            // Обновляем заголовок недели
             if (currentWeekOffset === 0) {
                 weekLabel.textContent = 'Текущая неделя';
             } else if (currentWeekOffset === 1) {
@@ -484,12 +538,12 @@
                 weekLabel.textContent = `${Math.abs(currentWeekOffset)} нед. назад`;
             }
 
-            // Управляем домашкой: если неделя не текущая, стираем всё
-            document.querySelectorAll('.col-homework').forEach((td, index) => {
+            // Прячем домашку на чужих неделях, на текущей — возвращаем
+            hwCells.forEach((td, index) => {
                 if (currentWeekOffset === 0) {
-                    td.textContent = originalHomework[index];
+                    td.innerHTML = originalHomeworkHtml[index];
                 } else {
-                    td.textContent = '—';
+                    td.innerHTML = '—';
                 }
             });
         }
@@ -506,4 +560,5 @@
     </script>
 </body>
 </html>
+
 
