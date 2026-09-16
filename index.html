@@ -227,7 +227,37 @@
                 <tbody>
                     <tr>
                         <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-subject">Алгебра</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">2</td>
+                        <td class="col-subject">Русский язык</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">3</td>
+                        <td class="col-subject">Английский язык</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">4</td>
+                        <td class="col-subject">Физ-ра</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">5</td>
+                        <td class="col-subject">Литература</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">6</td>
+                        <td class="col-subject">История</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">7</td>
+                        <td class="col-subject">География</td>
                         <td class="col-homework">—</td>
                     </tr>
                 </tbody>
@@ -248,7 +278,37 @@
                 <tbody>
                     <tr>
                         <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-subject">История</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">2</td>
+                        <td class="col-subject">Геометрия</td>
+                        <td class="col-homework">П-ф 7-8 №31(а), 32, 36, 37, 38 (доделать). Принести транспортир!</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">3</td>
+                        <td class="col-subject">Физика</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">4</td>
+                        <td class="col-subject">Биология</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">5</td>
+                        <td class="col-subject">Алгебра</td>
+                        <td class="col-homework">П-ф 3 №3.4, 3.5, 3.10</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">6</td>
+                        <td class="col-subject">Физ-ра</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">7</td>
+                        <td class="col-subject">Хор</td>
                         <td class="col-homework">—</td>
                     </tr>
                 </tbody>
@@ -269,7 +329,32 @@
                 <tbody>
                     <tr>
                         <td class="col-num">1</td>
-                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-subject">ИЗО</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">2</td>
+                        <td class="col-subject">География</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">3</td>
+                        <td class="col-subject">Русский язык</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">4</td>
+                        <td class="col-subject">Теория и статистика</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">5</td>
+                        <td class="col-subject">Физика</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">6</td>
+                        <td class="col-subject">Литература</td>
                         <td class="col-homework">—</td>
                     </tr>
                 </tbody>
@@ -297,13 +382,12 @@
             </table>
         </div>
 
-    </div> <!-- Конец контейнера -->
+    </div> 
 
     <script>
         const themeButton = document.getElementById('themeButton');
         const currentTheme = localStorage.getItem('theme');
 
-        // Проверка сохраненной темы при загрузке страницы
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeButton.textContent = 'Светлая тема';
@@ -312,7 +396,6 @@
             themeButton.textContent = 'Ночной режим';
         }
 
-        // Логика клика по кнопке
         themeButton.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
             
