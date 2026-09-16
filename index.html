@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронный Дневник — Расписание и ДЗ</title>
+    <style>
+        /* Переменные для быстрой смены цветов */
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --accent-color: #4a90e2;
+            --toggle-btn-bg: #333333;
+            --toggle-btn-text: #ffffff;
+        }
 
+        /* Цвета для темной темы */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted: #aaaaaa;
+            --border-color: #333333;
+            --accent-color: #bb86fc;
+            --toggle-btn-bg: #ffffff;
+            --toggle-btn-text: #121212;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Кнопка переключения темы */
+        .theme-toggle {
+            background-color: var(--toggle-btn-bg);
+            color: var(--toggle-btn-text);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Стили карточки дня (как в дневнике) */
+        .day-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .day-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        /* Таблица расписания */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .col-num { width: 5%; text-align: center; }
+        .col-subject { width: 35%; font-weight: 500; }
+        .col-homework { width: 60%; color: var(--text-muted); }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            th, td { padding: 8px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Мой Дневник</h1>
+        <!-- Кнопка переключения -->
+        <button class="theme-toggle" id="themeButton">Ночной режим</button>
+    </header>
+
+    <div class="container">
+
+        <!-- ПОНЕДЕЛЬНИК -->
+        <div class="day-card">
+            <div class="day-title">Понедельник</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Математика</td>
+                        <td class="col-homework">№ 145, № 147 (страница 45)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">2</td>
+                        <td class="col-subject">Русский язык</td>
+                        <td class="col-homework">Упражнение 231, повторить правила</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">3</td>
+                        <td class="col-subject">История</td>
+                        <td class="col-homework">Читать параграф 12, ответить на вопросы</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ВТОРНИК -->
+        <div class="day-card">
+            <div class="day-title">Вторник</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Физика</td>
+                        <td class="col-homework">Задачи 4.1 и 4.2 в тетради</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">2</td>
+                        <td class="col-subject">Литература</td>
+                        <td class="col-homework">Читать 2 главу поэмы «Мертвые души»</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">3</td>
+                        <td class="col-subject">Английский язык</td>
+                        <td class="col-homework">Рабочая тетрадь, стр. 15, упр. 3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Сюда можно добавлять аналогичные блоки для других дней недели -->
+
+    </div>
+
+    <script>
+        const themeButton = document.getElementById('themeButton');
+        const currentTheme = localStorage.getItem('theme');
+
+        // Проверяем, какая тема была сохранена ранее
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeButton.textContent = 'Светлая тема';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeButton.textContent = 'Ночной режим';
+        }
+
+        // Функция переключения темы по клику
+        themeButton.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeButton.textContent = 'Светлая тема';
+                localStorage.setItem('theme', 'dark'); // сохраняем выбор
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeButton.textContent = 'Ночной режим';
+                localStorage.setItem('theme', 'light'); // сохраняем выбор
+            }
+        });
+    </script>
+</body>
+</html>
