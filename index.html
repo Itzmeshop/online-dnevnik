@@ -49,7 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--border-color);
         }
@@ -65,6 +65,46 @@
             cursor: pointer;
             font-weight: bold;
             font-size: 14px;
+        }
+
+        /* Блок переключения недель */
+        .week-picker {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 25px;
+            background-color: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .week-btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+
+        .week-btn:hover {
+            opacity: 0.9;
+        }
+
+        .week-title {
+            font-size: 16px;
+            font-weight: 600;
         }
 
         .container {
@@ -124,6 +164,13 @@
         <button class="theme-toggle" id="themeButton">Ночной режим</button>
     </header>
 
+    <!-- Кликабельные стрелочки недели -->
+    <div class="week-picker">
+        <button class="week-btn" id="prevWeek">←</button>
+        <div class="week-title" id="weekLabel">Текущая неделя</div>
+        <button class="week-btn" id="nextWeek">→</button>
+    </div>
+
     <div class="container">
 
         <!-- ПОНЕДЕЛЬНИК -->
@@ -141,22 +188,22 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Физика</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-mon="1">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework">Упражнение 35</td>
+                        <td class="col-homework" data-mon="2">Упражнение 35</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-mon="3">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Труд</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-mon="4">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -177,37 +224,37 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Информатика</td>
-                        <td class="col-homework">Яндекс Учебник</td>
+                        <td class="col-homework" data-tue="1">Яндекс Учебник</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Геометрия</td>
-                        <td class="col-homework">Номера 2.20, 2.21, 2.23, 2.28, 2.29</td>
+                        <td class="col-homework" data-tue="2">Номера 2.20, 2.21, 2.23, 2.28, 2.29</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework">Упражнение 42</td>
+                        <td class="col-homework" data-tue="3">Упражнение 42</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Английский язык</td>
-                        <td class="col-homework">Слова 1b</td>
+                        <td class="col-homework" data-tue="4">Слова 1b</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
                         <td class="col-subject">Музыка</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-tue="5">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">6</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework">Номера 2.21, 2.39, 2.40</td>
+                        <td class="col-homework" data-tue="6">Номера 2.21, 2.39, 2.40</td>
                     </tr>
                     <tr>
                         <td class="col-num">7</td>
                         <td class="col-subject">История</td>
-                        <td class="col-homework">Параграф 4 пункты 6-7, опорные слова</td>
+                        <td class="col-homework" data-tue="7">Параграф 4 пункты 6-7, опорные слова</td>
                     </tr>
                 </tbody>
             </table>
@@ -228,42 +275,26 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-wed="1">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-wed="2">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Английский язык</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-wed="3">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Физ-ра</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-wed="4">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
-                        <td class="col-subject">Литература</td>
-                        <td class="col-homework">—</td>
-                    </tr>
-                    <tr>
-                        <td class="col-num">6</td>
-                        <td class="col-subject">История</td>
-                        <td class="col-homework">—</td>
-                    </tr>
-                    <tr>
-                        <td class="col-num">7</td>
-                        <td class="col-subject">География</td>
-                        <td class="col-homework">—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+                        
         <!-- ЧЕТВЕРГ -->
         <div class="day-card">
             <div class="day-title">Четверг</div>
@@ -279,37 +310,37 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">История</td>
-                        <td class="col-homework">§6 пункт 2 выписать опорные слова, учить итог и даты.</td>
+                        <td class="col-homework" data-thu="1">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Геометрия</td>
-                        <td class="col-homework">П-ф 7-8 №31(а), 32, 36, 37, 38 (доделать). Принести транспортир!</td>
+                        <td class="col-homework" data-thu="2">П-ф 7-8 №31(а), 32, 36, 37, 38 (доделать). Принести транспортир!</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Физика</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-thu="3">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Биология</td>
-                        <td class="col-homework">п 2 знать определения</td>
+                        <td class="col-homework" data-thu="4">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
                         <td class="col-subject">Алгебра</td>
-                        <td class="col-homework">П-ф 3 №3.4, 3.5, 3.10</td>
+                        <td class="col-homework" data-thu="5">П-ф 3 №3.4, 3.5, 3.10</td>
                     </tr>
                     <tr>
                         <td class="col-num">6</td>
                         <td class="col-subject">Физ-ра</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-thu="6">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">7</td>
                         <td class="col-subject">Хор</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-thu="7">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -330,32 +361,32 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">ИЗО</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-fri="1">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">География</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-fri="2">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-fri="3">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">4</td>
                         <td class="col-subject">Теория и статистика</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-fri="4">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">5</td>
                         <td class="col-subject">Физика</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-fri="5">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">6</td>
                         <td class="col-subject">Литература</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-fri="6">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -376,15 +407,16 @@
                     <tr>
                         <td class="col-num">1</td>
                         <td class="col-subject">Еще нет предмета</td>
-                        <td class="col-homework">—</td>
+                        <td class="col-homework" data-sat="1">—</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-    </div> 
+    </div> <!-- Конец контейнера -->
 
     <script>
+        // --- ЛОГИКА ТЕМЫ ИНТЕРФЕЙСА ---
         const themeButton = document.getElementById('themeButton');
         const currentTheme = localStorage.getItem('theme');
 
@@ -398,7 +430,6 @@
 
         themeButton.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
-            
             if (theme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 themeButton.textContent = 'Светлая тема';
@@ -409,6 +440,53 @@
                 localStorage.setItem('theme', 'light');
             }
         });
+
+        // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ НЕДЕЛЬ ---
+        let currentWeekOffset = 0; // 0 - текущая неделя, -1 - прошлая, 1 - следующая и т.д.
+        const weekLabel = document.getElementById('weekLabel');
+        const prevWeekBtn = document.getElementById('prevWeek');
+        const nextWeekBtn = document.getElementById('nextWeek');
+
+        // Сохраняем исходный текст домашки, чтобы возвращать его на текущей неделе
+        const originalHomework = {};
+        document.querySelectorAll('.col-homework').forEach((td, index) => {
+            originalHomework[index] = td.textContent;
+        });
+
+        function updateWeekDisplay() {
+            // Обновляем текст на плашке со стрелками
+            if (currentWeekOffset === 0) {
+                weekLabel.textContent = 'Текущая неделя';
+            } else if (currentWeekOffset === 1) {
+                weekLabel.textContent = 'Следующая неделя';
+            } else if (currentWeekOffset === -1) {
+                weekLabel.textContent = 'Прошлая неделя';
+            } else if (currentWeekOffset > 1) {
+                weekLabel.textContent = `Через ${currentWeekOffset} нед.`;
+            } else {
+                weekLabel.textContent = `${Math.abs(currentWeekOffset)} нед. назад`;
+            }
+
+            // Управляем домашкой: если неделя не текущая, стираем всё
+            document.querySelectorAll('.col-homework').forEach((td, index) => {
+                if (currentWeekOffset === 0) {
+                    td.textContent = originalHomework[index];
+                } else {
+                    td.textContent = '—';
+                }
+            });
+        }
+
+        prevWeekBtn.addEventListener('click', () => {
+            currentWeekOffset--;
+            updateWeekDisplay();
+        });
+
+        nextWeekBtn.addEventListener('click', () => {
+            currentWeekOffset++;
+            updateWeekDisplay();
+        });
     </script>
 </body>
 </html>
+
