@@ -213,3 +213,119 @@
             </table>
         </div>
 
+        <!-- СРЕДА -->
+        <div class="day-card">
+            <div class="day-title">Среда</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ЧЕТВЕРГ -->
+        <div class="day-card">
+            <div class="day-title">Четверг</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ПЯТНИЦА -->
+        <div class="day-card">
+            <div class="day-title">Пятница</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- СУББОТА -->
+        <div class="day-card">
+            <div class="day-title">Суббота</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div> <!-- Конец контейнера -->
+
+    <script>
+        const themeButton = document.getElementById('themeButton');
+        const currentTheme = localStorage.getItem('theme');
+
+        // Проверка сохраненной темы при загрузке страницы
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeButton.textContent = 'Светлая тема';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeButton.textContent = 'Ночной режим';
+        }
+
+        // Логика клика по кнопке
+        themeButton.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeButton.textContent = 'Светлая тема';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeButton.textContent = 'Ночной режим';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
