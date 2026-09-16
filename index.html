@@ -129,7 +129,6 @@
 
     <header>
         <h1>Мой Дневник</h1>
-        <!-- Кнопка переключения -->
         <button class="theme-toggle" id="themeButton">Ночной режим</button>
     </header>
 
@@ -149,18 +148,23 @@
                 <tbody>
                     <tr>
                         <td class="col-num">1</td>
-                        <td class="col-subject">Математика</td>
-                        <td class="col-homework">№ 145, № 147 (страница 45)</td>
+                        <td class="col-subject">Физика</td>
+                        <td class="col-homework">—</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
                         <td class="col-subject">Русский язык</td>
-                        <td class="col-homework">Упражнение 231, повторить правила</td>
+                        <td class="col-homework">Упражнение 35</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
-                        <td class="col-subject">История</td>
-                        <td class="col-homework">Читать параграф 12, ответить на вопросы</td>
+                        <td class="col-subject">Алгебра</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">4</td>
+                        <td class="col-subject">Труд</td>
+                        <td class="col-homework">—</td>
                     </tr>
                 </tbody>
             </table>
@@ -180,54 +184,119 @@
                 <tbody>
                     <tr>
                         <td class="col-num">1</td>
-                        <td class="col-subject">Физика</td>
-                        <td class="col-homework">Задачи 4.1 и 4.2 в тетради</td>
+                        <td class="col-subject">Информатика</td>
+                        <td class="col-homework">Яндекс Учебник</td>
                     </tr>
                     <tr>
                         <td class="col-num">2</td>
-                        <td class="col-subject">Литература</td>
-                        <td class="col-homework">Читать 2 главу поэмы «Мертвые души»</td>
+                        <td class="col-subject">Геометрия</td>
+                        <td class="col-homework">Номера 2.20, 2.21, 2.23, 2.28, 2.29</td>
                     </tr>
                     <tr>
                         <td class="col-num">3</td>
+                        <td class="col-subject">Русский язык</td>
+                        <td class="col-homework">Упражнение 42</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">4</td>
                         <td class="col-subject">Английский язык</td>
-                        <td class="col-homework">Рабочая тетрадь, стр. 15, упр. 3</td>
+                        <td class="col-homework">Слова 1b</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">5</td>
+                        <td class="col-subject">Музыка</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">6</td>
+                        <td class="col-subject">Алгебра</td>
+                        <td class="col-homework">Номера 2.21, 2.39, 2.40</td>
+                    </tr>
+                    <tr>
+                        <td class="col-num">7</td>
+                        <td class="col-subject">История</td>
+                        <td class="col-homework">Параграф 4 пункты 6-7, опорные слова</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- Сюда можно добавлять аналогичные блоки для других дней недели -->
+        <!-- СРЕДА -->
+        <div class="day-card">
+            <div class="day-title">Среда</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    </div>
+        <!-- ЧЕТВЕРГ -->
+        <div class="day-card">
+            <div class="day-title">Четверг</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <script>
-        const themeButton = document.getElementById('themeButton');
-        const currentTheme = localStorage.getItem('theme');
+        <!-- ПЯТНИЦА -->
+        <div class="day-card">
+            <div class="day-title">Пятница</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
+                        <td class="col-homework">—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        // Проверяем, какая тема была сохранена ранее
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeButton.textContent = 'Светлая тема';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeButton.textContent = 'Ночной режим';
-        }
+        <!-- СУББОТА -->
+        <div class="day-card">
+            <div class="day-title">Суббота</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num">№</th>
+                        <th class="col-subject">Предмет</th>
+                        <th class="col-homework">Домашнее задание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-num">1</td>
+                        <td class="col-subject">Еще нет предмета</td>
 
-        // Функция переключения темы по клику
-        themeButton.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            
-            if (theme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeButton.textContent = 'Светлая тема';
-                localStorage.setItem('theme', 'dark'); // сохраняем выбор
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeButton.textContent = 'Ночной режим';
-                localStorage.setItem('theme', 'light'); // сохраняем выбор
-            }
-        });
-    </script>
-</body>
-</html>
